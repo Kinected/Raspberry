@@ -7,7 +7,7 @@ from adafruit_tsl2561 import TSL2561
 
 # Spécifiez le type de capteur (DHT11 ou DHT22) et le numéro de broche GPIO
 capteur = Adafruit_DHT.DHT11
-broche = 18
+broche = 23
 
 # Initialisation du capteur TSL2561
 i2c = board.I2C()  # Cr�e l'objet I2C
@@ -15,7 +15,7 @@ tsl2561 = TSL2561(i2c)
 
 
 async def send_temperature():
-    uri = "ws://172.20.10.3:8000/ws/sensors"  # Remplacez par l'URL WebSocket appropriée
+    uri = "ws://172.20.10.2:8000/ws/sensors"  # Remplacez par l'URL WebSocket appropriée
     while True:
         try:
             async with websockets.connect(uri) as websocket:
